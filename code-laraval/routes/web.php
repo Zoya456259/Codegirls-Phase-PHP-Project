@@ -4,7 +4,7 @@ use App\Http\Controllers\ImageController;
 use app\Http\Controllers\TableControlller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PersonController;
-
+use App\Http\Controllers\FileUploadController;
 // Task 1
 // Route::get('/table', function () {
 //     echo "Welcome to table";
@@ -41,4 +41,7 @@ use App\Http\Controllers\PersonController;
 
 // Route::get('/people', [PersonController::class, 'index']);
 
-Route::get('/books/create', function () { return view('books.create');})->name('books.create');
+// Route::get('/books/create', function () { return view('books.create');})->name('books.create');
+
+Route::get('/file-upload', function () {return view('file-upload');});
+Route::post('/file-upload', [FileUploadController::class, 'upload'])->name('file.upload');
