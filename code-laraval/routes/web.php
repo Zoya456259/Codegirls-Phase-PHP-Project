@@ -39,4 +39,6 @@ use App\Http\Controllers\PersonController;
 // Route::post('/upload', [ImageController::class, 'store']);
 
 
-Route::get('/people', [PersonController::class, 'index']);
+// Route::get('/people', [PersonController::class, 'index']);
+
+Route::get('/books/create', function () { return view('books.create');})->name('books.create');
