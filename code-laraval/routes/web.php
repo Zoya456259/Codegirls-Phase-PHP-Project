@@ -5,11 +5,13 @@ use app\Http\Controllers\TableControlller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\BookController;
+
 // Task 1
 // Route::get('/table', function () {
 //     echo "Welcome to table";
 // });
-  
+       
 // Task 2
 // Route::get('/table/{number}', function ($number) {
 //       $table = " ";
@@ -43,5 +45,11 @@ use App\Http\Controllers\FileUploadController;
 
 // Route::get('/books/create', function () { return view('books.create');})->name('books.create');
 
-Route::get('/file-upload', function () {return view('file-upload');});
-Route::post('/file-upload', [FileUploadController::class, 'upload'])->name('file.upload');
+// Route::get('/file-upload', function () {return view('file-upload');});
+// Route::post('/file-upload', [FileUploadController::class, 'upload'])->name('file.upload');
+
+Route::get('/books', [BookController::class, 'index'])
+    ->name('books.create');
+
+Route::post('/books', [BookController::class, 'store'])
+    ->name('books.store');

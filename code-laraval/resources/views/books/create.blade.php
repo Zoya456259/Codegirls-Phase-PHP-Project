@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,23 @@
 
     <h2>Add New Book</h2>
 
-    <form action="{{ route('books.create') }}" method="GET">
+    @if (session('success'))
+        <p style="color: green;">
+            {{ session('success') }}
+        </p>
+    @endif
+
+    @if ($errors->any())
+        <ul style="color: red;">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
+    <form action="{{ route('books.store') }}" method="POST">
+        @csrf
+
         <label>Book Title:</label>
         <input type="text" name="title" placeholder="Enter book title" required>
         <br><br>
